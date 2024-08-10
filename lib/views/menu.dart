@@ -36,7 +36,7 @@ class _MenuState extends State<Menu> {
         rating: "4.8"),
     FoodModel(
         name: "Uramaki",
-        imagePath: "assets/images/sushi.png",
+        imagePath: "assets/images/sushi1.png",
         price: "23",
         rating: "4.9"),
   ];
