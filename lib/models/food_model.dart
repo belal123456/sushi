@@ -3,8 +3,10 @@ class FoodModel {
   final String imagePath;
   final String price;
   final String rating;
+  final String description;
 
   FoodModel({
+    required this.description,
     required this.name,
     required this.imagePath,
     required this.price,
@@ -14,4 +16,5 @@ class FoodModel {
   String get _price => price;
   String get _rating => rating;
   String get _name => name;
+  String get _description => description;
 }
