@@ -178,8 +178,51 @@ class _MenuState extends State<Menu> {
               },
             ),
           ),
+          SizedBox(
+            height: 20,
+          ),
 
           //popularfood
+          Container(
+            margin: const EdgeInsets.only(left: 25, right: 25, bottom: 20),
+            padding: EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              color: const Color.fromARGB(255, 138, 60, 55),
+              borderRadius: BorderRadius.circular(22),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(children: [
+                  Image.asset(
+                    "assets/images/sushi (1).png",
+                    height: 60,
+                  ),
+                  SizedBox(width: 5),
+                  const Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "salamon Eggs",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      Text(
+                        "\$23",
+                        style: TextStyle(color: Colors.white, fontSize: 18),
+                      ),
+                    ],
+                  ),
+                ]),
+                SizedBox(
+                  width: 20,
+                ),
+                Icon(Icons.favorite, color: Colors.white, size: 30),
+              ],
+            ),
+          )
         ],
       ),
     );
