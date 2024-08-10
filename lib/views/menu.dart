@@ -1,10 +1,47 @@
 import 'package:flutter/material.dart';
+import 'package:sushi/models/food_model.dart';
 
 import '../widget/custom_btn.dart';
 
-class Menu extends StatelessWidget {
+class Menu extends StatefulWidget {
   const Menu({super.key});
   static const String routeName = 'menu';
+
+  @override
+  State<Menu> createState() => _MenuState();
+}
+
+class _MenuState extends State<Menu> {
+  List foodModel = [
+    FoodModel(
+        name: "Nigiri",
+        imagePath:
+            "assets/menu-imgs/closeup-shot-delicious-sushi-roll-with-seasonings-white-background.jpg",
+        price: "30",
+        rating: "4.5"),
+    FoodModel(
+        name: "Maki",
+        imagePath:
+            "assets/menu-imgs/closeup-shot-sushi-roll-black-stone-plate.jpg",
+        price: "50",
+        rating: "4.4"),
+    FoodModel(
+        name: "Sashimi",
+        imagePath: "assets/menu-imgs/delicious-sushi-rolls.jpg",
+        price: "30",
+        rating: "4.7"),
+    FoodModel(
+        name: "Temaki",
+        imagePath:
+            "assets/menu-imgs/flat-lay-plate-sushi-rolls-with-nigiri.jpg",
+        price: "93",
+        rating: "4.8"),
+    FoodModel(
+        name: "Uramaki",
+        imagePath: "assets/menu-imgs/maki-sushi-isolated-white.jpg",
+        price: "23",
+        rating: "4.9"),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,6 +60,7 @@ class Menu extends StatelessWidget {
         centerTitle: true,
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           //promo banner
           Container(
@@ -111,6 +149,19 @@ class Menu extends StatelessWidget {
             height: 20,
           ),
           //menu list
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 26),
+            child: Text(
+              "Sushi Menu",
+              style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.grey[800],
+                  fontWeight: FontWeight.bold),
+            ),
+          ),
+          SizedBox(
+            height: 10,
+          )
 
           //popularfood
         ],
