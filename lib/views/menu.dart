@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sushi/models/food_model.dart';
 
 import '../widget/custom_btn.dart';
+import '../widget/menu_List.dart';
 
 class Menu extends StatefulWidget {
   const Menu({super.key});
@@ -161,7 +162,22 @@ class _MenuState extends State<Menu> {
           ),
           SizedBox(
             height: 10,
-          )
+          ),
+
+          Expanded(
+            child: ListView.builder(
+              itemCount: foodModel.length,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                return MenuList(
+                  name: foodModel[index].name,
+                  imagePath: foodModel[index].imagePath,
+                  price: foodModel[index].price,
+                  rating: foodModel[index].rating,
+                );
+              },
+            ),
+          ),
 
           //popularfood
         ],
