@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:sushi/core/on_generate.dart';
+import 'package:sushi/models/shop_modal.dart';
 
 import 'views/home_page.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(
+    create: (context) => ShopModal(),
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {

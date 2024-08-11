@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:sushi/main.dart';
 import 'package:sushi/models/food_model.dart';
+import 'package:sushi/models/shop_modal.dart';
 import 'package:sushi/views/item.details.dart';
+import 'package:provider/provider.dart';
 
 import '../widget/menu_list.dart';
 
@@ -13,45 +16,11 @@ class Menu extends StatefulWidget {
 }
 
 class _MenuState extends State<Menu> {
-  List foodModel = [
-    FoodModel(
-        name: "Nigiri",
-        imagePath: "assets/images/sushi (3).png",
-        price: "30",
-        rating: "4.5",
-        description:
-            "Maki sushi is a classic Japanese dish that consists of vinegared rice and various fillings like fish, vegetables, or seafood, all rolled in a sheet of seaweed (nori) and sliced into bite-sized pieces."),
-    FoodModel(
-        name: "Maki",
-        imagePath: "assets/images/sushi (4).png",
-        price: "50",
-        rating: "4.4",
-        description:
-            "Sashimi is a traditional Japanese delicacy consisting of thinly sliced raw fish or seafood, served without rice. It's prized for its fresh, delicate flavor and often accompanied by soy sauce, wasabi, "),
-    FoodModel(
-        name: "Sashimi",
-        imagePath: "assets/images/sushi (1).png",
-        price: "30",
-        rating: "4.7",
-        description:
-            "Sashimi is a traditional Japanese delicacy consisting of thinly sliced raw fish or seafood, served without rice. It's prized for its fresh, delicate flavor and often accompanied by soy sauce, wasabi, "),
-    FoodModel(
-        name: "Temaki",
-        imagePath: "assets/images/sushi.png",
-        price: "93",
-        rating: "4.8",
-        description:
-            "Sashimi is a traditional Japanese delicacy consisting of thinly sliced raw fish or seafood, served without rice. It's prized for its fresh, delicate flavor and often accompanied by soy sauce, wasabi, "),
-    FoodModel(
-        name: "Uramaki",
-        imagePath: "assets/images/sushi1.png",
-        price: "23",
-        rating: "4.9",
-        description:
-            "Sashimi is a traditional Japanese delicacy consisting of thinly sliced raw fish or seafood, served without rice. It's prized for its fresh, delicate flavor and often accompanied by soy sauce, wasabi, "),
-  ];
   @override
   Widget build(BuildContext context) {
+    //menu list
+    final shop = context.read<ShopModal>();
+    final foodList = shop.foodModel;
     return Scaffold(
       backgroundColor: Colors.grey[300],
       appBar: AppBar(
@@ -172,19 +141,19 @@ class _MenuState extends State<Menu> {
 
           Expanded(
             child: ListView.builder(
-              itemCount: foodModel.length,
+              itemCount: foodList.length,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 return MenuList(
-                  name: foodModel[index].name,
-                  imagePath: foodModel[index].imagePath,
-                  price: foodModel[index].price,
-                  rating: foodModel[index].rating,
+                  name: foodList[index].name,
+                  imagePath: foodList[index].imagePath,
+                  price: foodList[index].price,
+                  rating: foodList[index].rating,
                   ontap: () {
                     Navigator.pushNamed(
                       context,
                       ItemDetails.routeName,
-                      arguments: foodModel[index],
+                      arguments: foodList[index],
                     );
                   },
                 );
