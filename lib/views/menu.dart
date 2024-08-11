@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sushi/main.dart';
-import 'package:sushi/models/food_model.dart';
+
 import 'package:sushi/models/shop_modal.dart';
 import 'package:sushi/views/item.details.dart';
 import 'package:provider/provider.dart';

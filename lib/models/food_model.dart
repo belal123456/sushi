@@ -12,9 +12,9 @@ class FoodModel {
     required this.price,
     required this.rating,
   });
-  String get _imagePathUrl => imagePath;
-  String get _price => price;
-  String get _rating => rating;
-  String get _name => name;
-  String get _description => description;
+  // String get _imagePathUrl => imagePath;
+  // String get _price => price;
+  // String get _rating => rating;
+  // String get _name => name;
+  // String get _description => description;
 }

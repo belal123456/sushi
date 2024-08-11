@@ -1,7 +1,9 @@
 // ItemDetails Screen
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'package:sushi/models/food_model.dart';
+import 'package:sushi/models/shop_modal.dart';
 
 class ItemDetails extends StatefulWidget {
   const ItemDetails({super.key, required this.food});
@@ -14,6 +16,48 @@ class ItemDetails extends StatefulWidget {
 
 class _ItemDetailsState extends State<ItemDetails> {
   int x = 0;
+  void addToCart() {
+    final shop = context.read<ShopModal>();
+
+    //add to cart
+
+    shop.addToCart(widget.food, x);
+    // let the user now that the item has been added
+    showDialog(
+        context: context,
+        barrierDismissible: true,
+        builder: (_) => AlertDialog(
+              backgroundColor: const Color.fromARGB(255, 138, 60, 55),
+              title: const Text(
+                "Added",
+                style: TextStyle(color: Colors.white),
+              ),
+              content: Text(
+                "${widget.food.name} added to cart with quantity " +
+                    x.toString(),
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  fontStyle: FontStyle.italic,
+                ),
+              ),
+              actions: [
+                TextButton(
+                    style: TextButton.styleFrom(
+                      backgroundColor: const Color.fromARGB(
+                          255, 235, 184, 180), // Use the color directly
+                    ),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: const Text(
+                      "Ok",
+                      style: TextStyle(color: Colors.white, fontSize: 25),
+                    ))
+              ],
+            ));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +108,7 @@ class _ItemDetailsState extends State<ItemDetails> {
                     Row(
                       children: [
                         IconButton(
-                            onPressed: () {},
+                            onPressed: addToCart,
                             icon: const Icon(
                               Icons.shopping_cart,
                               size: 30,

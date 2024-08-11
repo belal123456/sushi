@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sushi/views/cart_view.dart';
 import 'package:sushi/views/home_page.dart';
 import 'package:sushi/views/item.details.dart';
 
@@ -15,6 +16,8 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case ItemDetails.routeName:
       final FoodModel food = settings.arguments as FoodModel;
       return MaterialPageRoute(builder: (context) => ItemDetails(food: food));
+    case CartView.routeName:
+      return MaterialPageRoute(builder: (context) => const CartView());
 
     default:
       return MaterialPageRoute(builder: (context) => const Menu());
