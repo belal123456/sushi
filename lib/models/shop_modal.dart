@@ -48,9 +48,25 @@ class ShopModal extends ChangeNotifier {
   List get customerCart => _customerCart;
 
   //add to cart
+
   void addToCart(FoodModel food, int quantity) {
-    for (int i = 0; i < quantity; i++) {
-      _customerCart.add(food);
+    // Check if the item already exists in the cart
+    final existingItemIndex =
+        _customerCart.indexWhere((item) => item.name == food.name);
+
+    if (existingItemIndex >= 0) {
+      // If it exists, just update the quantity
+      _customerCart[existingItemIndex].quantity += quantity;
+    } else {
+      // If it doesn't exist, add it with the specified quantity
+      _customerCart.add(FoodModel(
+        name: food.name,
+        imagePath: food.imagePath,
+        price: food.price,
+        rating: food.rating,
+        description: food.description,
+        quantity: quantity,
+      ));
     }
 
     notifyListeners();

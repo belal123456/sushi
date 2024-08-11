@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:sushi/models/shop_modal.dart';
+import 'package:sushi/views/cart_view.dart';
 import 'package:sushi/views/item.details.dart';
 import 'package:provider/provider.dart';
 
@@ -33,6 +34,14 @@ class _MenuState extends State<Menu> {
           'Tokyo sushi',
           style: TextStyle(color: Colors.grey[900], fontSize: 24),
         ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.pushNamed(context, CartView.routeName);
+            },
+            icon: const Icon(Icons.shopping_basket_outlined, size: 30),
+          ),
+        ],
         centerTitle: true,
       ),
       body: Column(

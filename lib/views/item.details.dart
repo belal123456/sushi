@@ -18,10 +18,10 @@ class _ItemDetailsState extends State<ItemDetails> {
   int x = 0;
   void addToCart() {
     final shop = context.read<ShopModal>();
+    shop.addToCart(widget.food, x);
 
     //add to cart
 
-    shop.addToCart(widget.food, x);
     // let the user now that the item has been added
     showDialog(
         context: context,
