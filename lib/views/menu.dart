@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sushi/models/food_model.dart';
 import 'package:sushi/views/item.details.dart';
 
-import '../widget/custom_btn.dart';
-import '../widget/menu_List.dart';
+import '../widget/menu_list.dart';
 
 class Menu extends StatefulWidget {
   const Menu({super.key});
@@ -58,7 +57,7 @@ class _MenuState extends State<Menu> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        leading: Icon(
+        leading: const Icon(
           Icons.menu,
           size: 30,
         ),
@@ -73,8 +72,8 @@ class _MenuState extends State<Menu> {
         children: [
           //promo banner
           Container(
-              margin: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-              padding: EdgeInsets.all(18),
+              margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+              padding: const EdgeInsets.all(18),
               decoration: BoxDecoration(
                 color: const Color.fromARGB(255, 138, 60, 55),
                 borderRadius: BorderRadius.circular(26),
@@ -85,11 +84,11 @@ class _MenuState extends State<Menu> {
                   Column(children: [
                     Column(
                       children: [
-                        Text(
+                        const Text(
                           "Get 30% promo ",
                           style: TextStyle(color: Colors.white, fontSize: 18),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 12,
                         ),
                         Container(
@@ -111,10 +110,9 @@ class _MenuState extends State<Menu> {
                                   ),
                                 ),
                               ),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 8.0),
-                                child: const Icon(Icons.arrow_forward,
+                              const Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 8.0),
+                                child: Icon(Icons.arrow_forward,
                                     color: Colors.white, size: 24),
                               ),
                             ],
@@ -130,7 +128,7 @@ class _MenuState extends State<Menu> {
                   )
                 ],
               )),
-          SizedBox(
+          const SizedBox(
             height: 25,
           ),
 
@@ -141,12 +139,12 @@ class _MenuState extends State<Menu> {
               decoration: InputDecoration(
                 fillColor: Colors.transparent,
                 filled: true,
-                prefixIcon: Icon(Icons.search),
+                prefixIcon: const Icon(Icons.search),
                 hintText: 'Search',
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(20),
                   borderSide:
-                      BorderSide(color: Color.fromARGB(255, 138, 60, 55)),
+                      const BorderSide(color: Color.fromARGB(255, 138, 60, 55)),
                 ),
               ),
             ),
@@ -154,7 +152,7 @@ class _MenuState extends State<Menu> {
 
           //categories
           //category
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           //menu list
@@ -168,7 +166,7 @@ class _MenuState extends State<Menu> {
                   fontWeight: FontWeight.bold),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
 
@@ -193,14 +191,14 @@ class _MenuState extends State<Menu> {
               },
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
 
           //popularfood
           Container(
             margin: const EdgeInsets.only(left: 25, right: 25, bottom: 20),
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
               color: const Color.fromARGB(255, 138, 60, 55),
               borderRadius: BorderRadius.circular(22),
@@ -213,7 +211,7 @@ class _MenuState extends State<Menu> {
                     "assets/images/sushi (1).png",
                     height: 60,
                   ),
-                  SizedBox(width: 5),
+                  const SizedBox(width: 5),
                   const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -231,10 +229,10 @@ class _MenuState extends State<Menu> {
                     ],
                   ),
                 ]),
-                SizedBox(
+                const SizedBox(
                   width: 20,
                 ),
-                Icon(Icons.favorite, color: Colors.white, size: 30),
+                const Icon(Icons.favorite, color: Colors.white, size: 30),
               ],
             ),
           )
